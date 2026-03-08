@@ -18,10 +18,10 @@ jobs:
         run: date
 
       - name: Show branch name
-        run: echo "Branch name: ${{ github.ref_name }}"
+        run: echo "Branch name:" ${{ github.ref_name }}
 
       - name: List files
         run: ls -la
 
       - name: Show runner OS
-        run: echo "Runner OS: $RUNNER_OS"
+        run: echo "Runner OS:" $RUNNER_OS
