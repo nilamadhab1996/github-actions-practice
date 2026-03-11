@@ -6,7 +6,7 @@ on:
 jobs:
 
   test_runner:
-    runs-on: self-hosted
+    runs-on: [self-hosted, my-linux-runner]
 
     steps:
       - name: Show Host Name
@@ -20,6 +20,6 @@ jobs:
 
       - name: Verify file creation
         run: cat test_file.txt
-        
+
       - name: List files in the directory
         run: ls -la
