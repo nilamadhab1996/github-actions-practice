@@ -22,4 +22,4 @@ jobs:
 
     steps:
       - name: Print Date from Previous Job
-        run: echo "Date from previous job: ${{ needs.generate-date.outputs.today}}"
+        run: echo "Date from previous job ${{ needs.generate-date.outputs.today}}"

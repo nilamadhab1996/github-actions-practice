@@ -22,7 +22,7 @@ jobs:
         continue-on-error: true
 
       - name: Runs if previous failed
-        if: failed()
+        if: failure()
         runs: echo "Previous step failed"
 
       - name: Always runs
