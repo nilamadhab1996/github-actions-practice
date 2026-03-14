@@ -19,6 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verify secrets
+        run: |
+          if [ -z "${{ secrets.DOCKER_USERNAME }}" ]; then echo "DOCKER_USERNAME missing"; else echo "DOCKER_USERNAME OK"; fi
+          if [ -z "${{ secrets.DOCKER_TOKEN }}" ]; then echo "DOCKER_TOKEN missing"; else echo "DOCKER_TOKEN OK"; fi
+
       - name: Login Docker
         uses: docker/login-action@v3
 
