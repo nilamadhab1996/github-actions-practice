@@ -1,0 +1,22 @@
+name: Artifact Demo
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Generate file
+        run: |
+          echo "Test Report" > report.txt
+          echo "Pipeline successful" >> report.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+
+        with:
+          name: test-report
+          path: report.txt

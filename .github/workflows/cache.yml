@@ -1,0 +1,24 @@
+name: Cache Demo
+
+on:
+  push:
+
+jobs:
+  cache-test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+
+        with:
+          path: ~/.cache/pip
+          key: pip-cache-${{ runner.os }}
+
+      - name: Install python package
+        run: |
+          pip install requests
