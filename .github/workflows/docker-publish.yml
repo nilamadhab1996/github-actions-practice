@@ -5,11 +5,18 @@ on:
     branches:
       - main
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
 
   build:
 
     runs-on: ubuntu-latest
+
+    env:
+      DOCKERHUB_USER: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_TAG: sha-${{ github.sha }}
 
     steps:
 
@@ -28,4 +35,6 @@ jobs:
 
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:latest
+            ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:${{ github.sha }}
