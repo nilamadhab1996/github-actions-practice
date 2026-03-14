@@ -2,10 +2,12 @@ name: Reusable Build Workflow
 
 on:
   workflow_call:
+
     inputs:
       app_name:
         required: true
         type: string
+
       environment:
         required: false
         default: staging
@@ -17,18 +19,21 @@ on:
 
     outputs:
       build_version:
-        description: "Generated build version"
+        description: Build version
         value: ${{ jobs.build.outputs.build_version }}
 
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
 
     outputs:
       build_version: ${{ steps.version.outputs.version }}
 
     steps:
-      - name: Checkout repository
+
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Print build info
@@ -40,5 +45,5 @@ jobs:
       - name: Generate version
         id: version
         run: |
-          VERSION="v1.0-${GITHUB_SHA::7}"
+          VERSION=v1.0-${GITHUB_SHA::7}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
