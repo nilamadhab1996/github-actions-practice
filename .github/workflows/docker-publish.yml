@@ -21,7 +21,7 @@ jobs:
 
       - name: Verify secrets
         run: |
-          if [ -z "${{ var.DOCKERHUB_USER }}" ]; then echo "DOCKER_USERNAME missing"; else echo "DOCKER_USERNAME OK"; fi
+          if [ -z "${{ var.DOCKERHUB_USER }}" ]; then echo "DOCKERHUB_USER missing"; else echo "DOCKERHUB_USER OK"; fi
           if [ -z "${{ secrets.DOCKER_TOKEN }}" ]; then echo "DOCKER_TOKEN missing"; else echo "DOCKER_TOKEN OK"; fi
 
       - name: Login Docker
@@ -36,4 +36,4 @@ jobs:
 
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/ci-cd-automation-github-actions:latest
+          tags: ${{ secrets.DOCKERHUB_USER }}/ci-cd-automation-github-actions:latest
