@@ -1,0 +1,35 @@
+name: Setup and Greet
+description: "Print greeting and environment info"
+
+inputs:
+  name:
+    description: "Name of the user"
+    required: true
+  language:
+    description: "Language for greeting"
+    default: en
+    required: false
+
+outputs:
+  greeted:
+    description: "Greeting completed"
+    value: "true"
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Print greeting
+      shell: bash
+      run: |
+        if [ "${{ inputs.language }}" = "en" ]; then
+          echo "Hello ${{ inputs.name }}"
+        else
+          echo "Hola ${{ inputs.name }}"
+        fi
+
+    - name: Show environment info
+      shell: bash
+      run: |
+        echo "Date: $(date)"
+        echo "Runner OS: $RUNNER_OS"
