@@ -4,4 +4,8 @@ WORKDIR /app
 
 COPY . .
 
-CMD ["python3","-m","http.server","8000"]
+RUN pip install -r requirements.txt
+
+EXPOSE 5000
+
+CMD ["python","app.py"]
