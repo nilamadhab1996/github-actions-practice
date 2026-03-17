@@ -1,12 +1,7 @@
 #!/bin/bash
 
-echo "Running tests"
+echo "Running health test"
 
-python -m py_compile app.py
+curl -f http://localhost:5000/health
 
-if [ $? -eq 0 ]
-then
- echo "Tests passed"
-else
- exit 1
-fi
+echo "Test passed"

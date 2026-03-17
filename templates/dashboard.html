@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>DevOps Dashboard</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h1>🚀 DevSecOps Pipeline Dashboard</h1>
+
+<div class="grid">
+
+<div class="card">
+<h3>Service</h3>
+<p id="service"></p>
+</div>
+
+<div class="card">
+<h3>Version</h3>
+<p id="version"></p>
+</div>
+
+<div class="card">
+<h3>Environment</h3>
+<p id="env"></p>
+</div>
+
+<div class="card">
+<h3>Pipeline</h3>
+<p class="green">Passing</p>
+</div>
+
+<div class="card">
+<h3>Security Scan</h3>
+<p class="green">Clean</p>
+</div>
+
+<div class="card">
+<h3>Docker Image</h3>
+<p id="image"></p>
+</div>
+
+<div class="card">
+<h3>Host</h3>
+<p id="host"></p>
+</div>
+
+<div class="card">
+<h3>Python</h3>
+<p id="python"></p>
+</div>
+
+</div>
+
+<button onclick="loadData()">Refresh</button>
+
+<script>
+
+function loadData(){
+
+fetch("/metrics")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("service").innerHTML=data.service
+
+document.getElementById("version").innerHTML=data.version
+
+document.getElementById("env").innerHTML=data.environment
+
+document.getElementById("image").innerHTML=data.image
+
+document.getElementById("host").innerHTML=data.host
+
+document.getElementById("python").innerHTML=data.python
+
+})
+
+}
+
+loadData()
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+body{
+
+    background:#0d1117;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+    
+    }
+    
+    h1{
+    
+    margin-top:30px;
+    
+    }
+    
+    .grid{
+    
+    display:grid;
+    
+    grid-template-columns:repeat(4,1fr);
+    
+    gap:20px;
+    
+    padding:40px;
+    
+    }
+    
+    .card{
+    
+    background:#161b22;
+    
+    padding:20px;
+    
+    border-radius:10px;
+    
+    box-shadow:0px 4px 10px black;
+    
+    }
+    
+    .green{
+    
+    color:#3fb950;
+    
+    font-weight:bold;
+    
+    }
+    
+    button{
+    
+    padding:10px;
+    
+    background:#238636;
+    
+    border:none;
+    
+    color:white;
+    
+    cursor:pointer;
+    
+    border-radius:5px;
+    
+    }
